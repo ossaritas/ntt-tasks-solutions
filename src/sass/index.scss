@@ -1,0 +1,281 @@
+@import "elements";
+$btn-color: #098cff;
+$bp-small: 600px; // 600px
+
+* {
+  margin: 0;
+  padding: 0;
+  user-select: none;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+  @media only screen and (max-width: $bp-small) {
+    font-size: 10px;
+  }
+}
+
+body {
+  font-family: "Open Sans", sans-serif;
+  font-weight: 400;
+  line-height: 1.6;
+  min-height: 100vh;
+  background-color: gainsboro;
+}
+
+///Main
+.main-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  background-color: #22223b;
+  height: 70px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 400;
+  @media only screen and (max-width: $bp-small) {
+    height: 50px;
+  }
+
+  ul {
+    align-items: center;
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 5px;
+    li {
+      display: inline;
+      margin-left: 5px;
+      :hover {
+        background-color: #11111e;
+      }
+      :active,
+      :focus,
+      :visited {
+        background-color: #9a8c98;
+      }
+
+      a {
+        padding: 5px 10px;
+        display: block;
+        border-radius: 5px;
+        text-decoration: none;
+        color: white;
+      }
+    }
+  }
+  button {
+    background-color: $btn-color;
+    cursor: pointer;
+    color: white;
+    margin-right: 30px;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 3px;
+    text-decoration: none;
+    transition: all 0.3s;
+    @media only screen and (max-width: $bp-small) {
+      margin-right: 20px;
+      padding: 2px 5px;
+      font-size: 10px;
+    }
+
+    &:hover {
+      color: $btn-color;
+      background-color: white;
+    }
+  }
+}
+
+.content-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 10px;
+  padding: 10px;
+  background-color: white;
+  border: 0.5px solid black;
+  border-radius: 5px;
+  height: 150px;
+  box-shadow: 1px 1px gray;
+  @media only screen and (max-width: $bp-small) {
+    height: 100px;
+    padding: 5px;
+    margin: 5px;
+  }
+}
+
+.content-left {
+  display: flex;
+  align-items: center;
+}
+
+.content-left-img {
+  margin: 0 10px 0 20px;
+  width: 150px;
+  @media only screen and (max-width: $bp-small) {
+    width: 80px;
+    margin: 0 5px 0 5px;
+  }
+  img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+  }
+}
+
+.divider {
+  margin: 0 15px;
+  border: 0.5px solid rgba(178, 176, 176, 80%);
+  height: 90px;
+  @media only screen and (max-width: $bp-small) {
+    height: 60px;
+    margin: 0 5px;
+  }
+}
+
+.content-left-text {
+  @media only screen and (max-width: $bp-small) {
+    font-size: 8px;
+  }
+  :first-child {
+    font-weight: 800;
+  }
+  p {
+    margin-top: 5px;
+  }
+}
+
+.def-price {
+  font-weight: 600;
+  text-align: center;
+}
+.def-price-overline {
+  font-weight: normal;
+  text-decoration: line-through;
+  text-align: center;
+}
+
+.content-right {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 10px 10px 0 0;
+  div {
+    p {
+      margin-bottom: 5px;
+      @media only screen and (max-width: $bp-small) {
+        margin-bottom: 2px;
+      }
+    }
+  }
+  @media only screen and (max-width: $bp-small) {
+    margin-right: 5px;
+    font-size: 8px;
+  }
+}
+
+.content-right-action {
+  button {
+    border: 1px solid $btn-color;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 10px;
+    cursor: pointer;
+    transition: all 0.3s;
+    @media only screen and (max-width: $bp-small) {
+      padding: 0;
+      width: 60px;
+      font-size: 8px;
+    }
+  }
+}
+
+.btn-first-option {
+  width: 180px;
+  border: none;
+  background-color: $btn-color;
+  color: white;
+  @media only screen and (max-width: $bp-small) {
+  }
+  &:hover {
+    transform: scale(1.05);
+    color: $btn-color;
+    background-color: white;
+  }
+}
+
+.btn-second-option {
+  border: 1px solid $btn-color;
+  width: 180px;
+  background-color: #fff;
+  color: $btn-color;
+  @media only screen and (max-width: $bp-small) {
+    width: 90px;
+    font-size: 12px;
+  }
+  &:hover {
+    transform: scale(1.05);
+    color: white;
+    background-color: $btn-color;
+  }
+}
+
+.login {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+  background-color: #11111e;
+  color: white;
+
+  p {
+    margin-bottom: 100px;
+    font-size: 40px;
+    @media only screen and (max-width: $bp-small) {
+      font-size: 16px;
+      margin-bottom: 50px;
+    }
+  }
+
+  button {
+    display: inline-block;
+    border-radius: 4px;
+    background-color: $btn-color;
+    border: none;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+    width: 180px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 5px;
+    font-size: 20px;
+    @media only screen and (max-width: $bp-small) {
+      font-size: 10px;
+      width: 100px;
+      padding: 10px;
+    }
+    &:hover {
+      transform: scale(1.05);
+      background-color: #fff;
+      color: #098cff;
+    }
+  }
+}
