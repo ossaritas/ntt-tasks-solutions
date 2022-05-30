@@ -6,12 +6,15 @@ import { Provider } from "react-redux";
 import store from "./store/index";
 
 import App from "./App";
+import { ErrorBoundary } from "./ErrorBoundary";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <Router>
-    <Provider store={store}>
-      <App />
-    </Provider>
-  </Router>
+  <ErrorBoundary>
+    <Router>
+      <Provider store={store}>
+        <App />
+      </Provider>
+    </Router>
+  </ErrorBoundary>
 );
