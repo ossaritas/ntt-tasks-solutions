@@ -37,7 +37,9 @@ const taskSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder
-      .addCase(getOfferCount.pending, () => {})
+      .addCase(getOfferCount.pending, (state) => {
+        state.offersCount = null;
+      })
       .addCase(getOfferCount.fulfilled, (state, action) => {
         state.offersCount = action.payload;
       })
