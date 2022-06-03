@@ -3,7 +3,7 @@ import { configureStore } from "@reduxjs/toolkit";
 import taskSlice from "./task-slice";
 
 const store = configureStore({
-  reducer: taskSlice.reducer,
+  reducer: { task: taskSlice.reducer },
 });
 
 export default store;
