@@ -1,7 +1,6 @@
-import { Link } from "react-router-dom";
-import { useDispatch } from "react-redux";
-import { taskActions } from "../store/task-slice";
-
+import { Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import store from '../store';
 const NavBar = () => {
   const dispatch = useDispatch();
   return (
@@ -19,7 +18,7 @@ const NavBar = () => {
       </ul>
 
       <Link className="logout" to="/">
-        <button onClick={() => dispatch(taskActions.onLogout())}>Logout</button>
+        <button onClick={() => dispatch({ type: 'LOG_OUT' })}>Logout</button>
       </Link>
     </header>
   );

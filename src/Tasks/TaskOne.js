@@ -1,24 +1,31 @@
-import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { v4 as uuidv4 } from "uuid";
-import { getOffers } from "../store/task-slice";
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { v4 as uuidv4 } from 'uuid';
+import { getOffers } from '../store/task-slice';
 
-import Task from "./Task";
+import Task from './Task';
 
 const TaskOne = () => {
   const {
-    offers: { case1 },
+    offers: {
+      case1: { data, loaded },
+    },
   } = useSelector((state) => state.task);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getOffers("case1"));
-  }, [dispatch]);
+    if (!loaded) {
+      dispatch(getOffers('case1'));
+    }
+
+    return () => {};
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [loaded]);
 
   return (
     <div>
-      {case1.offerList
-        ? case1.offerList.map((item) => (
+      {data.offerList
+        ? data.offerList.map((item) => (
             <Task
               key={uuidv4()}
               img={item.ImagePath}
@@ -28,7 +35,7 @@ const TaskOne = () => {
                 item.popoverContent ? item.popoverContent[0].Description : false
               }
               explanation={
-                item.popoverContent ? item.popoverContent[0].Title : ""
+                item.popoverContent ? item.popoverContent[0].Title : ''
               }
               discount={
                 item.QuotaInfo.HasDiscount ? item.QuotaInfo.HasDiscount : false
